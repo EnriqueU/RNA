@@ -399,14 +399,18 @@ El término $ß(t)$ es un parámetro de gananacia o coeficiente de aprendizaje, 
  \item Explicar a fondo las siguientes tipos de redes: Perceptron simple, Percetron multicapa y Mapas Auto-organizados(KOHONEN).
 \end{itemize}
   
-\section{\textbf{\emph{Propuesta de Desarrollo:}}}
+\section{\textbf{\emph{Conclusión}}}
 
 \begin{itemize}
-\item Se propone la optimizacion de los algoritmos de aprendizaje supervisado y no supervisado.
+\item El perceptrón simple es útil para cuando se requiere clasificar dos conjuntos linealmente independientes, cuando se requiero de un caso contrario es mejor unsar el perceptron multicapa, que en este caso el más comun es el backpropagation.
+
+\item El Perceptrón Multicapa no extrapola bien, es decir, si la red se entrena mal o de manera insuficiente, las salidas pueden ser imprecisas.La existencia de mínimos locales en la función de error dificulta considerablemente el entrenamiento, pues una vez alcanzado un mínimo el entrenamiento se detiene aunque no se haya alcanzado la tasa de convergencia fijada.
+
+\item Utilizando el lenguaje R se tiene el beneficio de poder utilizar grandes bases de datos y además de manipularlas.
         
-\item La utilizacion de un sistema gestos de base de datos que me ayude en el momento de poder procesar una gran cantidad de datos, pues dependiendo del tipo de aprendizaje, la red neuronal necesitará nuevamente los datos ingresados anteriomente para obtener una nueva clasificación, aunque también existe una relación inversa pues la datamining debido a la gran cantidad de datos que posee esta, necesita de métodos de busqueda que lo haga a este eficiente.
-        
-\item Por otro lado también se platea tambien la idea de poder usar programación paralela para la aplicacion del algoritmo de aprendizaje y este se a aun mas eficiente. Es importante tener en cuenta aquí que las RNA son un modelo del procesamiento de la información, y que los sistemas que las emulan son solo eso: emuladores de un modelo ideal. La cuestión es en no radicar en contar con máquinas secuenciales más potentes, sino con disponer de ordenadores expresamente diseñados para el cálculo paralelo masivo.
+\item Utilizando los pasquetes de R se puede lograr un buen entendiemiento de las redes neuronales gracia a sus funciones gráficas que esta posee.
+
+\item 
 \end{itemize}
 
 
