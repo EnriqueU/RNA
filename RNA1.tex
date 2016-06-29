@@ -359,15 +359,15 @@ Sea $N$ el número de neuronas de entrada y $M$ el número de neuronas de salida
 \begin{enumerate}
 \item Inicializar los pesos, $w_{ji}$, con valores aleatorios pequeños, fijando la zona inicial de vecindad entre las neuronas de salida.\\
     		
-\item Presentar a la red una \textbf{información de entrada} en forma de vector $E_{k} = (e_{1}, ..., e_{N})$, cuyas componentes, ei, sean valores contínuos.\\
+\item Presentar a la red una \textbf{información de entrada} en forma de vector $E_{k} = (e_{1}, ..., e_{N})$, cuyas componentes, $e_{i}$, sean valores contínuos.\\
     		
-\item Determinar la \textbf{neurona vencedora} de la capa de salida: será aquella cuyo vector de pesos, $W_{j}$, sea el más parecido a la información de entrada Ek. Recordemos que las componentes de $W_{j}$ son los valores de los pesos de las conexiones entre esa neurona, $j$, y cada una de las neuronas de entrada. Para ello se calcula las distancias entre los vectores $E_{k}$ y $W_{j}$ para cada neurona de salida. La expresión matemática sería la siguiente:
+\item Determinar la \textbf{neurona vencedora} de la capa de salida: será aquella cuyo vector de pesos, $W_{j}$, sea el más parecido a la información de entrada $E_{k}$. Recordemos que las componentes de $W_{j}$ son los valores de los pesos de las conexiones entre esa neurona, $j$, y cada una de las neuronas de entrada. Para ello se calcula las distancias entre los vectores $E_{k}$ y $W_{j}$ para cada neurona de salida. La expresión matemática sería la siguiente:
 
 \begin{center}
 $d_{j} = \sum_{i=1}^{N}(e_{i} - w_{ji})^2 , 1 \leq j \leq M$
 \end{center}
 
-\item Una vez localizada la neurona vencedora, j*, se \textbf{actualizan los pesos de sus conexiones} de entrada y también los de las neuronas vecinas (las que pertenecen a su zona de vecindad, Zonaj). Lo que se consigue es asociar la información de entrada con una cierta zona de la capa de salida.
+\item Una vez localizada la neurona vencedora, $j^{*}$, se \textbf{actualizan los pesos de sus conexiones} de entrada y también los de las neuronas vecinas (las que pertenecen a su zona de vecindad, Zonaj). Lo que se consigue es asociar la información de entrada con una cierta zona de la capa de salida.
 
 \begin{center}
 $w_{ji}(t+1) = w_{ji}(t) + ß(t)[e_{i}^{(k)} - w_{j*i}(t)]$
@@ -377,7 +377,7 @@ para j perteneciente a Zonaj*(t)
 
 El término $ß(t)$ es un parámetro de gananacia o coeficiente de aprendizaje, con un valor entre 0 y 1 que decrece con el número de iteraciones del proceso de entrenamiento. Puede utilizarse la expresión $ß(t) = 1/t$\\
 
-\item El proceso se debe repetir, volviendo a presentar todo el juego de patrones de aprendizaje E1, E2, .., un mínimo de 500 veces (t = 500).\\
+\item El proceso se debe repetir, volviendo a presentar todo el juego de patrones de aprendizaje $E_{1}, E_{2},...,$ un mínimo de 500 veces (t = 500).\\
 \end{enumerate}
 \end{enumerate}
   
