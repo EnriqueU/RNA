@@ -1,0 +1,433 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[unicode=true]{hyperref}
+\usepackage{caption}
+\urlstyle{same}
+\title{Clasificación de información usando Redes Neuronales}
+\author{Enrique Alexis Peinado Rodriguez}
+\date{31 de Mayo}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+
+El cerebro humano es un sistema tan complejo que supera la capacidad de cualquier maquina, en el sentido de poder responder a nuevas situaciones, poder aprender de ellas y dar una respuesta adecuada a un cada una de ellas. Para ello existe un campo de la computación, llamado \textbf{Computación Congnitiva} que se encarga de desarrollar ordenadores que piensen de forma humana. Dentro del campo de estudio se tiene una variedad de metodologías que tratan de poder realizar este fin, entre ellas tenemos el concepto de \textbf{Redes Neuronales} el cual trata de imitar el comportamiento que tiene un neurona, utilizando esta metodología se utilizará para poder gestionar información no estructurada, utilizando el aprendizaje supervisado y no supervisado.
+\end{abstract}
+
+\section{\textbf{\emph{Análisis del Tema Investigado}}}
+
+\subsection{\textbf{\emph{Red Neuronal Artificial}}}
+
+Una \textbf{red neuronal o una red neuronal artificial(RNA)} puede definirse como un sistema de procesamiento de información compuesto por un gran número de elementos de procesamiento (neuronas), profusamente conectados entre sí a través de canales de comunicación. Estas conexiones establecen una estructura jerárquica y permiten la interacción con los objetos del mundo real tratando de emular al sistema nervioso biológico. A continuación se muestra unos de los 5 principios más importantes del funcionamiento de las RNA:\\
+
+\begin{itemize}
+\item \textbf{\emph{Aprendizaje adaptativo:}}
+        
+Las redes neunorales son sistemas dinámicos autoadaptativos. Son adaptables debido a la capacidad de autoajuste de los elementos procesales (neuronas) que componen el sistema. Son dinámicos, pues son capaces de estar constatemente cambiando para adaptarse a las nuevas condiciones.\\
+
+En el proceso de aprendizaje, los enlaces ponderados de las neuronas se ajustan de manera que se obtengan ciertos resultados específicos. Una red neuronal no necesita un algoritmo para resolver un problema, ya que ella puede generar su propia distribución de pesos en los enlaces mediante el aprendizaje. También existen redes que continuan aprendiendo a lo largo de su vida, después de completado su periodo se entrenamiento.\\
+        
+\item \textbf{\emph{Autoorganización:}}
+        
+La auto-organización consiste en la modificación de toda la red completa con el fin de llevar a cabo un objetivo específico. Autoorganziación significa generalización, de esta forma una red puede responder a datos o situaciones que no ha experimentado antes, pero que puede inferir en base a su entrenamiento. Esta característica es muy útil sobre todo cuando la información de entrada es poco clara o se encuentra incompleta.\\
+        
+\item \textbf{\emph{Tolerancia a fallos:}}
+        
+La tolerancia a fallos se entiende aquí en dos sentidos: primero, las redes pueden \textbf{reconocer patrones de información con ruido, distorsión o incompletos} (tolerancia de fallos respecto de los datos); y segundo, pueden \textbf{seguir trabajando (con cierta degradación)} aunque se destruya parte de la red (tolerancia a fallos respecto de la estructura).\\
+ 
+La explicación de este fenómeno se encuentra en que, mientras la computación tradicional almacena la información en espacios únicos, localizados y direccionables, las redes neuronales lo hacen de forma distribuida y con un alto grado de redundancia.\\
+        
+\item \textbf{\emph{Operación en tiempo real:}}
+        
+De todos los métodos existentes, la RNA son las más indicadas para el reconocimiento de patrones en tiempo real, debido a que \textbf{trabajan en paralelo} actualizando todas sus instancias simultáneamente.\\
+        
+\item \textbf{\emph{Fácil inserción en la tecnología existente:}}
+        
+Es relativamente sencillo obtener chips especializados para redes neuronales que mejoran su capacidad en ciertas tareas. Ello facilita la integración modular en los sistemas existentes.
+\end{itemize}
+  
+\subsubsection{\textbf{\emph{Elementos de una RNA}}}
+
+Todas las RNA poseen elementos que las caracteriza y que además hace posible el entrenamiento de la red, las cuales son:
+
+\begin{itemize}
+\item \textbf{Elementos internos:} valores de entradas, señal de salida, peso de la sinapsis (factor asignado a cada sinapsis), entrada total, función de salida, función de activación y reglas de aprendizaje (permiten modificar los pesos de la sinapsis).\\
+        
+\item \textbf{Capa o nivel:} conjunto de neuronas cuya capa tiene su origen en la misma fuente y cuyas salidas van al mismo destino.\\
+        
+\item \textbf{Tipos de capas:} entrada (reciben estímulos externos), ocultas (representación interna de la información) y salida.\\
+        
+\item \textbf{Conexión entre neuronas:} propagación hacia delante (ninguna salida de las neuronas es entrada del mismo nivel o niveles superiores) y propagación hacia detrás (la salida de las neuronas pueden ser entradas del mismo nivel o niveles anteriores y también de ellas mismas).\\
+        
+\item \textbf{Dinámica:} asincrónica (evalúan su estado continuamente, según les llega información), sincronía (cambios a la vez en todas las neuronas).   
+\end{itemize}
+  
+\subsection{\textbf{\emph{Aprendizaje Automático:}}}
+
+Rama de la \textbf{Inteligencia Artificial} que se encarga de desarrollar nuevas técnicas que le permitirá a la computadora aprender, en otras palabras, de \textbf{crear programas capaces de generalizar comportamientos a partir de una informacion no estructurada}, es por tanto un proceso de inducción del concocimiento.\\
+    
+Además se dedica al estudio de los agentes/programas que aprenden o evolucionan basados en su experiencia, para realizar una tarea determinada cada vez mejor. El objetivo principal de todo proceso de aprendizaje es utilizar la evidencia conocida para poder crear una hipótesis y poder dar una respuesta a nuevas situaciones no conocidas.\\
+    
+Ante esto existen algoritmos para el aprendizaje automático, el cual se agrupan en una taxonomía en función de la entrada de los mismos, en este caso mencionaremos dos tipos:
+    
+\begin{itemize}
+\item \textbf{\emph{Aprendizaje supervisado:}}
+        
+El aprendizaje supervisado se caracteriza porque el proceso de aprendizaje se realiza mediante un entrenamiento controlado por un agente externo (supervisor, maestro) que determina la respuesta que deberia generar la red a partir de una entrada determinada. El supervisor controla la salida de la red y en caso de que esta no coincida con la deseada, se procederá a modificar los pesos de las conexiones, con el fin de conseguir que la salida obtenida se aproxime a la deseada.\\
+        
+Un ejemplo de este tipo de algoritmo es el problema de clasificación, donde el sistema de aprendizaje trata de etiquetar (clasificar) una serie de vectores utilizando una entre varias categorías (clases). La base de conocimiento del sistema está formada por ejemplos de etiquetados anteriores. En este tipo de aprendizaje se suelen considerar, a su vez, tres formas de llevarlo a cabo, que dan lugar a los siguientes aprendizajes supervisados: \\
+
+\begin{itemize}
+\item \textbf{Aprendizaje por corrección de error:}
+Consiste en ajustar los pesos de las conexiones de la red en función de la diferencia entre los valores deseados y los obtenidos a la salida de la red, es decir, en función del error cometido en la salida. Por ejemplo, la regla de aprendizaje del Perceptron.\\
+
+\item \textbf{Aprendizaje por refuerzo:}
+Se trata de un aprendizaje supervisado, más  lento que el anterior, que se basa en la idea de no disponer de un ejemplo completo del comportamiento deseado, es decir, de no indicar durante el entrenamiento exactamente la salida que se desea que proporcione la red ante una determinada entrada.\\
+
+\item \textbf{Aprendizaje estocástico:}
+Consiste basicamente en realizar cambios aleatorios en los valores de los pesos de las conexiones de la red y evaluar su efecto a partir del objetivo deseado y de distribuciones de probabilidad.
+\end{itemize}
+Este tipo de aprendizaje puede llegar a ser muy útil en problemas de investigación biológica, biología computacional y bioinformática.\\
+        
+\item \textbf{\emph{Aprendizaje no supervisado:}}
+        
+El proceso de modelado se lleva a cabo sobre un conjunto de ejemplos formado tan sólo por entradas al sistema. No se tiene información sobre las categorías de esos ejemplos. Por lo tanto, en este caso, el sistema tiene que ser capaz de reconocer patrones para poder etiquetar las nuevas entradas. Este es útil para la compresión de datos: fundamentalmente, todos los algoritmos de compresión dependen tanto explícita como implícitamente de una distribución de probabilidad sobre un conjunto de entrada.\\
+
+\begin{itemize}
+\item \textbf{Aprendizaje hebbiano:}
+Pretende medir la familiaridad o extraer características de los datos de entrada. Este aprendizaje consiste básicamente en el ajuste de los pesos de las conexiones de acuerdo con la correlación de los valores de activación (salidas) de las dos neuronas conectadas.\\
+
+\item \textbf{Aprendizaje competitivo y comparativo:}
+Las neuronas compiten unas con otras con el fin de llevar a cabo una tarea dada. Se pretende que cuando se presente a la red cierta información, sólo una o un grupo de ellas se activen. El objetivo de este aprendizaje es categorizar (clustering) los datos que se introducen en la red.\\
+\end{itemize}
+ 
+\begin{center}
+\textbf{\emph{Distincion entre Aprendizaje supervisado y no supervisado}}
+\end{center}
+    		
+El aprendizaje supervisado se caracteriza por contar con información que especifica qué conjuntos de datos son satisfactorios para el objetivo del aprendizaje. En el aprendizaje no supervisado el programa no cuenta con datos que definan que información es satisfactoria o no.\\
+
+\textbf{Criterio de clasificación por reglas de aprendizaje:}
+\begin{enumerate}
+\item \textbf{ON-line:}
+El aprendizaje se efectúa durante el funcionamiento normal de la red, por lo que aquí no se diferencia la fase de aprendizaje de la de operación.\\
+
+\item \textbf{OFF-line:}
+La red debe desconectarse de su funcionamiento hasta que el aprendizaje termine, para luego establecer de forma fija sus pesos y comenzar a operar.
+\end{enumerate}
+
+\begin{center}
+\textbf{La principal diferencia entre las dos estará en las redes off-line serán más estables en su funcionamiento que las on-line.}
+\end{center}
+		
+\textbf{\emph{Enfoques}}
+\begin{itemize}
+\item Árboles de decisiones
+\item Reglas de asociación
+\item Algoritmos genéticos
+\item Redes neuronales artificiales
+\item Máquinas de vectores de soporte
+\item Máquinas de vectores de soporte
+\item Redes bayesianas
+\end{itemize}
+\end{itemize}
+  
+\section{\textbf{\emph{Neurona y RNA:}}}
+
+Como se dijo anteriormente las \textbf{RNA} tratan de imitar el comportamiento de una neurona, para ello se debe de tener en cuenta las características que posee una.
+    
+\begin{enumerate}
+\item \textbf{\emph{Neurona:}}
+        
+Las neuronas son un tipo de células del sistema nervioso cuya principal función es la excitabilidad eléctrica de su membrana plasmática. Están especializadas en la recepción de estímulos y conducción del impulso nervioso.\\
+        
+\textbf{Características de una neurona:}
+\begin{itemize}
+\item \textbf{Dendritas:} Son las ramificaciones receptoras de la neurona, el cual carga señales electricas de exterior hacia el soma.\\
+        		
+\item \textbf{Soma:} Es el cuerpo de la neurona es cual realiza la suma de las señales eléctricas proveniente de las dendritas, las procesa y envia la señal resultante hacia el axón.\\
+        		
+\item \textbf{Axón:} Es una fibra aun más grande que las dendritas que se encargan de trasmitir la señal resultante del soma hacia otras neuronas.\\
+        		
+\item \textbf{La sinapsis} es una unión intercelular que se da entre el axón de una neurona y las dendritas de otra. En estos contactos se lleva a cabo la transmisión del impulso nervioso.\\
+        		
+\item \textbf{El impulso nervioso} es aquell señal eléctrica que se trasmite de neurona en neurona.\\
+\end{itemize}
+    
+\item \textbf{\emph{RNA}}
+    
+Una red neuronal se compone de unidades llamadas neuronas. Cada neurona recibe una serie de entradas a través de interconexiones y emite una salida. Esta salida viene dada por tres funciones:
+    
+\begin{itemize}
+\item \textbf{Entradas:} Conjunto de entradas las cuales pueden ser tanto discretas como continuas.\\
+    		
+\item \textbf{Pesos Sinápticos:} Representa la intensidad de interacción entra la neurona presináptica y la neurona postsináptica.\\
+    		
+\item \textbf{Función de propagación:} Proporciona el valor del potencial postsináptico de a neurona en funcion de sus pesos y entradas. Esta funciones dependiendo del método de aprendizaje podrían ser:
+\begin{enumerate}
+\item Función de tipo lineal basada en la suma ponderada.	
+\begin{center}
+$ h_{i(t)} = \sum_{j}^{n}W_{ij}X_{j}$
+\end{center}
+        		
+\item Función basada en la distancia euclediana.	
+\begin{center}
+$ h_{i(t)} = \sqrt{\sum_{j}^{n}(X_{j}-W_{ij})^2}$
+\end{center}
+\end{enumerate}
+        
+\item \textbf{Función de activación:} 
+Propociona el estado de activación actual de la neurona en función de su anterior y de su potencial postsináptico actual.
+
+\begin{center}
+$ a_{i(t)} = f_{i}(a_{i(t-1)},h_{i(t)})$
+\end{center}
+        		
+Aunque en muchos modelos no depende de su estado anterior, entonces:
+
+\begin{center}
+$ a_{i(t)} = f_{i}(h_{i(t)})$
+\end{center}
+
+\end{itemize}
+\end{enumerate}
+
+\begin{center}
+\centering
+\begin{tabular}{ | l | p{30mm} | p{15mm} | }
+\hline
+Nombre & Función & Rango \\ \hline\hline
+Identidad & $y=x$ & $[-\infty,+\infty]$  \\ \hline
+Escalon & $$y=signo(x)$$Función Heaviside$$y =h(x)$$ & $$\{-1,+1\}$$ $$\{0,+1\}$$ \\ \hline
+Lineal a tramos & $$y=-1, x<-1$$ $$y=x, -1 \leq x \leq -1$$ $$y=-1, +1 \leq x$$ & $$[-1,+1]$$ \\ \hline
+Sigmoidea & $$y=\frac{1}{1+\exp{-x}}$$ $$y=tgh(x)$$ & $$[0,+1]$$ $$[-1,+1]$$ \\ \hline
+Gaussiana & $$y=A \exp{-Bx^2}$$ & $$[0,+1]$$ \\ \hline
+Sinusoidal & $$y=Asen(wx + \varphi)$$ & $$[-1,+1]$$ \\ \hline
+\end{tabular}
+\end{center}
+  
+\section{\textbf{\emph{Limitaciones De Los Sistemas Tradicionales De Gestión De Documentación:}}}
+
+Tradicionalmente, un profesional infiere una estructura a partir de información documental no estructurada que, implementada en una aplicación informática permite con posterioridad recuperar información. Esta estructuración se realiza habitualmente por el siguiente método:\\
+
+\begin{itemize}
+\item \textbf{El método de las tablas relacionales:} De la información no estructurada del documento se extraen una serie de palabras clave que lo identifican, para después recuperar esas palabras como valores de los campos de un registro predefinido. Lo que tenemos es, pues, un sistema que gestiona una referencia del documento.\\
+\end{itemize}
+    
+Las principales limitaciones de estos métodos serían:
+    
+\begin{enumerate}
+\item Los procesos de estructuración mediante estos métodos son subjetivos y rígidos.
+        
+\item Resulta poco operativo para el usuario frente a los autores de la aplicación.
+        
+\item Si con el paso del tiempo, hay nuevas necesidades de búsqueda, la tarea de reindexación es complicada, lenta y costosa.
+\end{enumerate}
+
+\section{\textbf{\emph{Implementación:}}}
+
+\subsection{Lenguaje R}
+El lenguaje R es un entorno y lenguaje de programación con un enfoque estadístico y además proporciona un amplio abanico de herramientas estadísticas(modelos lineales, modelos no lineales, test estadísticos, análisis de series temporales, algoritmos de clasficicación y agrupamiento) y gráficas.\\
+
+\textbf{Características:}
+\begin{itemize}
+\item Es un lenguaje de programación el cual permite que lo usuarios creen sus propias funciones.
+\item Posee manipulación de objetos en R y además su \textbf{orientación a objetos.}
+\item La facil extensión de R debido a su política de \textbf{lexical scoping}
+\item La integración y la sencilla manipulación de base de datos.
+\item Su capacidad gráfica, permite generar gráficos de alta calidad.\\
+\end{itemize}
+
+\subsubsection{Paquetes}
+Los paquetes son la unidades fundamentales de código R reproducible. Ellos incluyen funciones en R reutilizables, la documentacion que describe como usarlos, y datos de la muestra. A su vez R forma parte de un proyeto colaborativo y abierto, en el cual los usuarios pueden publicar paquetes que extienden su configuración básica.\\
+
+La implementación se basará de acuerdo a dos paquetes los cuales implementan tanto algoritmos supervisados como no supervisado, los cuales son:\\
+
+\begin{enumerate}
+\item \textbf{neuralnet:}
+\item \textbf{kohonen:\\}
+
+Funciones para entrenar mapas supervisadas y auto-organizados (SOM). También interrogatorio de los mapas y la predicción usando mapas entrenados son compatibles. El nombre del paquete que se refiere a Teuvo Kohonen, el inventor de la SOM.
+\end{enumerate}
+
+\
+
+\subsection{\textbf{\emph{Aprendizaje Supervisado}}}
+
+\begin{enumerate}
+\item \textbf{\emph{Perceptrón Simple:}}
+        
+Este modelo tiene gran importancia histórica ya que fue el primer modelo en poseer un mecanismo de entrenamiento que permite determinar automáticamente los pesos sinápticos que clasifican correctamente a un conjunto de patrones a partir de un conjunto de ejemplos.\\  
+    
+La arquitectura del perceptrón esta compuesta por dos capas de neuronas, una de entrada y una de salida. La capa de entrada es la que recibe la información proveniente del exterior y la transmite a las neuronas sin realizar ningún tipo de operación sobre la señal de entrada.\\
+
+En general la información entrante es binaria. La función de activación de las neuronas de un perceptrón es del tipo escalón, dando de esta manera sólo salidas binarias. Cada neurona de salida del perceptrón representa a una clase. Una neurona de salida responde con 1 si el vector de entrada pertenece a la clase a la que representa y responde con 0 en caso contrario.\\
+
+La operación de un perceptrón con \textbf{n} neuronas de entrada y \textbf{m} neuronas de salidas puede ser resumida de la siguiente manera:
+    
+\begin{center}
+$y_i(t) =f(\sum_{j=1}^{n}w_{ij}x_j -\theta_{i})\ \ \forall i \ 1\leq i \leq m.$
+\end{center}
+    
+El algoritmo de entrenamiento del perceptrón se encuentra dentro de los denominados algoritmos por corrección de errores. Este tipo de algoritmos ajustan los pesos de manera proporcional a la diferencia entre la salida actual proporcionada por la red y la salida objetivo, con el fin de minimizar el error producido por la red.\\
+    
+\begin{center}
+\textbf{\emph{Ventajas y Desventajas:}}
+\end{center}
+	   
+Se puede demostrar que este método de entrenamiento converge siempre en un tiempo finito y con independencia de los pesos de partida, siempre que la función a representar sea linealmente separable. El principal problema de este método de entrenamiento es que cuando la función a representar no es linealmente separable el proceso de entrenamiento oscilará y nunca alcanzará la solución. Las funciones no separables linealmente no pueden ser representadas por un perceptrón.\\
+    
+\item \textbf{\emph{Perceptron Multicapa}}
+    		
+El perceptrón multicapa es una red neuronal artificial (RNA) formada por múltiples capas, esto le permite resolver problemas que no son linealmente separables, lo cual es la principal limitación del perceptrón simple. El perceptrón multicapa puede ser totalmente o localmente conectado. En el primer caso cada salida de una neurona de la capa "i" es entrada de todas las neuronas de la capa "i+1", mientras que en el segundo cada neurona de la capa "i" es entrada de una serie de neuronas (región) de la capa "i+1".
+    		
+\begin{itemize}
+\item \textbf{BackPropagation}
+    			
+La propagación hacia atrás de errores o retropropagación es un algoritmo de aprendizaje supervisado que se usa para entrenar redes neuronales artificiales. El algoritmo emplea un ciclo propagación – adaptación de dos fases. Una vez que se ha aplicado un patrón a la entrada de la red como estímulo, este se propaga desde la primera capa a través de las capas superiores de la red, hasta generar una salida. La señal de salida se compara con la salida deseada y se calcula una señal de error para cada una de las salidas.
+    			
+La importancia de este proceso consiste en que, a medida que se entrena la red, las neuronas de las capas intermedias se organizan a sí mismas de tal modo que las distintas neuronas aprenden a reconocer distintas características del espacio total de entrada. Después del entrenamiento, cuando se les presente un patrón arbitrario de entrada que contenga ruido o que esté incompleto, las neuronas de la capa oculta de la red responderán con una salida activa si la nueva entrada contiene un patrón que se asemeje a aquella característica que las neuronas individuales hayan aprendido a reconocer durante su entrenamiento.
+\end{itemize}
+\end{enumerate}
+  
+\subsection{\textbf{\emph{Aprendizaje NO Supervisado}}}
+
+Las relaciones que se establecen entre los componentes que describen y definen la información son muy importantes para poder seleccionar posteriormente, de forma inteligente la información que contiene la base de conocimiento. \textbf{La clasificación automática de la información, y el modo en que esta es recuperada son los campos donde más se han aplicado las RNA.}\\
+
+En la redes autoorganizadas el entrenamiento se realiza presentando solo entradas, para ello la red debe de descrubir un patron o características que identifique a cada unas de las entradas. La regla más utilizada por estas redes es el aprendizaje competitivo, de estas se desprenden las siguientes:
+
+\begin{itemize}
+\item ART (Grossberg 88)
+\item Neo-cognitrón (Fukushima 80)
+\item Mapas Autoorganizados (Kohonen 82,89)\\
+\end{itemize}
+   
+\subsubsection{\textbf{Mapas Autoorganizativo de KOHONEN}}
+    
+Se trata de establecer una correspondencia entre la información de entrada y un espacio de salida de dos dimensiones, o mapa topológico. De esta manera, los datos de entrada con características comunes activarán zonas próximas del mapa.
+    
+Este modelo de red representa sus neuronas de salida dispuestas de manera bidimensional. Cuando se ingresa un dato a la red esta reacciona de forma que solo una neurona de la capa de salida resulta activada. A esta neurona se la llama vencedora y determina un punto en el mapa bidimensional. De esta manera se clasifica la información de entrada, ya que la neurona ganadora representa la clase a la que pertenece la entrada, además de que ante entradas similares se activará siempre la misma neurona. Por tanto, la red es sumamente indicada para establecer relaciones, desconocidas previamente, entre un conjunto determinado de datos.
+    
+\begin{enumerate}
+\item \textbf{Arquitectura}
+
+Los mapas autoorganizados consta de dos capas con \textbf{N} neuronas de entradas y \textbf{M} de salida. Cada una de las \textbf{N} neuronas de entrada se conecta a las \textbf{M} neuronas de salida.\\
+
+Entre las neuronas de la capa de salida existen conexiones laterales de inhibicion implícita. Cada una de estas neuronas va a tener cierta influencia sobre su vecina. El valor que se asigne a los pesos de las conexiones entre las capas de entradas y salida durante el proceso de aprendizaje de la red va a deender precisamente de esta interación lateral.\\
+
+La influencia que una neruona ejerce sobre las demás es función de la distancia entre ellas, siendo muy pequeña cuando están muy alejadas.\\
+
+\item \textbf{\emph{Funcionamiento:}}
+
+El algoritmos pretende encontrar el dato aprendido más parecido al de entrada para, en consecuencia, averiguar qué neurona se activará y sobre todo, en qué zona del espacio bidimensional de salida se encuentra.\\
+
+Lo que hace la red en definitiva es realizar una tarea de clasificación, ya que la neurona de salida activada ante una entrada representa la clase a la que pertenece dicha información de entrada. Además, como ante otra entrada parecida se activa la misma neurona de salida, u otra cercana, debido a la semejanza entre las clases, se garantiza que las neuronas topológicamente próximas sean sensibles a entradas físicamente similares. Por tanto, esta red es especialmente útil para establecer relaciones entre conjuntos de datos.	\\
+	
+\item \textbf{\emph{Aprendizaje:}}
+		
+Es de tipo OFF LINE, por lo que se distingue una etapa de aprendizaje y otra de funcionamiento. También utiliza un aprendizaje no supervisado de tipo competitivo. Sólo una neurona de la capa de salida se activa ante la entrada, ajustándose los pesos de las conexiones en función de la neurona que ha resultado vencedora.\\
+
+Durante la etapa de entrenamiento, se presenta a la red un conjunto de informaciones de entrada para que ésta establezca, en función de la semejanza entre los datos, las diferentes categorías (una por neurona de salida) que servirán durante la fase de funcionamiento para realizar clasificaciones de nuevos datos que se presenten a la red. Los valores finales de los pesos de las conexiones entre cada neurona de la capa de salida con las de entrada se corresponderán con los valores de los componentes del vector de aprendizaje que consigue activar la neurona correspondiente.\\
+
+El aprendizaje no concluye después de presentarle una vez todos los patrones de entrada, sino que habrá que repetir el proceso varias veces para refinar el mapa topológico de salida, de tal forma que cuantas más veces se presenten los datos, tanto más se reducirán las zonas de neuronas que se deben activar ante entradas parecidas, consiguiendo que la red pueda realizar una clasificación más selectiva.\\
+	
+\item \textbf{\emph{Algoritmo:}}
+	
+Sea $N$ el número de neuronas de entrada y $M$ el número de neuronas de salida.
+
+\textbf{Objetivo:} establecer los valores de los pesos de las conexiones.
+
+\begin{enumerate}
+\item Inicializar los pesos, $w_{ji}$, con valores aleatorios pequeños, fijando la zona inicial de vecindad entre las neuronas de salida.\\
+    		
+\item Presentar a la red una \textbf{información de entrada} en forma de vector $E_{k} = (e_{1}, ..., e_{N})$, cuyas componentes, ei, sean valores contínuos.\\
+    		
+\item Determinar la \textbf{neurona vencedora} de la capa de salida: será aquella cuyo vector de pesos, $W_{j}$, sea el más parecido a la información de entrada Ek. Recordemos que las componentes de $W_{j}$ son los valores de los pesos de las conexiones entre esa neurona, $j$, y cada una de las neuronas de entrada. Para ello se calcula las distancias entre los vectores $E_{k}$ y $W_{j}$ para cada neurona de salida. La expresión matemática sería la siguiente:
+
+\begin{center}
+$d_{j} = \sum_{i=1}^{N}(e_{i} - w_{ji})^2 , 1 \leq j \leq M$
+\end{center}
+
+\item Una vez localizada la neurona vencedora, j*, se \textbf{actualizan los pesos de sus conexiones} de entrada y también los de las neuronas vecinas (las que pertenecen a su zona de vecindad, Zonaj). Lo que se consigue es asociar la información de entrada con una cierta zona de la capa de salida.
+
+\begin{center}
+$w_{ji}(t+1) = w_{ji}(t) + ß(t)[e_{i}^{(k)} - w_{j*i}(t)]$
+\end{center}
+
+para j perteneciente a Zonaj*(t)
+
+El término $ß(t)$ es un parámetro de gananacia o coeficiente de aprendizaje, con un valor entre 0 y 1 que decrece con el número de iteraciones del proceso de entrenamiento. Puede utilizarse la expresión $ß(t) = 1/t$\\
+
+\item El proceso se debe repetir, volviendo a presentar todo el juego de patrones de aprendizaje E1, E2, .., un mínimo de 500 veces (t = 500).\\
+\end{enumerate}
+\end{enumerate}
+  
+\section{\textbf{\emph{Objetivos:}}}
+
+\begin{itemize}
+\item Un buen entendimiento de los conceptos acerca del tema de redes neuronales.
+        
+\item Hacer de los algoritmos de aprendizaje los más eficiente utilizando técnicas de programación.
+        
+\item Relacionar la biólogia computacional con la ciencias de la computación.
+        
+\item Conocer acerca del funcimiento del sistema nervioso mediante la simulación de las redes neuronales.
+\end{itemize}
+  
+\section{\textbf{\emph{Propuesta de Desarrollo:}}}
+
+\begin{itemize}
+\item Se propone la optimizacion de los algoritmos de aprendizaje supervisado y no supervisado.
+        
+\item La utilizacion de un sistema gestos de base de datos que me ayude en el momento de poder procesar una gran cantidad de datos, pues dependiendo del tipo de aprendizaje, la red neuronal necesitará nuevamente los datos ingresados anteriomente para obtener una nueva clasificación, aunque también existe una relación inversa pues la datamining debido a la gran cantidad de datos que posee esta, necesita de métodos de busqueda que lo haga a este eficiente.
+        
+\item Por otro lado también se platea tambien la idea de poder usar programación paralela para la aplicacion del algoritmo de aprendizaje y este se a aun mas eficiente. Es importante tener en cuenta aquí que las RNA son un modelo del procesamiento de la información, y que los sistemas que las emulan son solo eso: emuladores de un modelo ideal. La cuestión es en no radicar en contar con máquinas secuenciales más potentes, sino con disponer de ordenadores expresamente diseñados para el cálculo paralelo masivo.
+\end{itemize}
+  
+\begin{thebibliography}{0}
+
+\bibitem{RNABook}
+\newblock {R}aquel {F}lórez {L}ópez, {J}osé {M}iguel {F}ernández {F}ernández.
+\newblock {L}as {R}edes {N}euronales {A}rtificiales, 2008.
+
+\bibitem{PropagacionHaciaAtras}
+\newblock {A}dam {G}olda.
+\newblock {P}rinciples of {T}raining {M}ulti-{L}ayer {N}eural {N}etwork using {B}ackpropagation, 2005.
+\url{http://galaxy.agh.edu.pl/~vlsi/AI/backp_t_en/backprop.html}.
+
+\bibitem{EntrenamientoPdf}
+\newblock {S}r. {L}uis {F}ederico {B}ertona.
+\newblock {E}ntrenamiento de {R}edes {N}euronales basado en {A}lgoritmos {E}volutivos, 2005. 
+\url{http://laboratorios.fi.uba.ar/lsi/bertona-tesisingenieriainformatica.pdf}.
+
+\bibitem{InteligenciaArtificial}
+\newblock {R}ubén {C}ardenas {A}lmeida.
+\newblock {I}nteligencia {A}rtificial, 2000 - 2001. 
+\url{personales.upv.es/ccarrasc/doc/2000-2001/Redes Neuronales Excalibur - Nativ. Noverges/redes.htm#2}.
+
+\bibitem{AplicacionRNA}
+\newblock {F}élix de {M}oya {A}negón, {V}íctor {H}errero {S}olana, {V}icente {G}uerrero {B}ote.
+\newblock {A}plicación de {R}edes {N}euronales {A}rtificiales a la recuperación de información, 1998. 
+\url{https://www.researchgate.net/profile/Felix_Moya-Anegon2/publication/39105442_La_aplicacion_de_Redes_Neuronales_Artificiales_RNA_a_la_recuperacion_de_la_informacion/links/0c96051fded9f08024000000.pdf}.
+
+\bibitem{RedesNeuronalesArtificiales}
+\newblock {F}rancisco {G}utierrez {M}artín.
+\newblock {R}edes {N}euronales {A}rtificiales. 
+\url{http://thales.cica.es/rd//Recursos/rd98/TecInfo/07/tecinfo-07.html}.
+
+
+\bibitem{RNADocumentacion}
+\newblock {N}atividad {N}overges, {V}icente {S}acristán, {P}epa {O}rtí, {L}ourdes {M}argaix.
+\newblock {A}lgunas {A}plicaciones de {R}edes {N}euronales {A}rtificiales en {D}ocumentación, 2000 - 2001.
+\url{http://personales.upv.es/ccarrasc/doc/2000-2001/Redes\%20Neuronales\%20Excalibur\%20-\%20Nativ. \%20Noverges/redes.htm#6.}.
+
+\bibitem{RedesNeuronalesBlog}
+\newblock {M}arco {A}ntonio {C}arcini {M}ora.
+\newblock {R}edes {N}euronales, 2012.
+\url{http://marco-redes-neuronales.blogspot.pe/2012/08/perceptron-simple.html}.
+\end{thebibliography}
+\end{document}
