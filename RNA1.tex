@@ -249,12 +249,27 @@ La implementación se basará de acuerdo a dos paquetes los cuales implementan t
 
 \begin{enumerate}
 \item \textbf{neuralnet:}
-\item \textbf{kohonen:\\}
 
-Funciones para entrenar mapas supervisadas y auto-organizados (SOM). También interrogatorio de los mapas y la predicción usando mapas entrenados son compatibles. El nombre del paquete que se refiere a Teuvo Kohonen, el inventor de la SOM.
+El paquete NeuralNet contiene una función muy flexible para entrenar las redes neuronales de alimentación directa, es decir, a la aproximación de una relación funcional en la situación anterior. Puede manejar teóricamente un número arbitrario de covariables y variables de respuesta, así como de las capas ocultas y neuronas ocultas a pesar de que los costes computacionales pueden aumentar exponencialmente con el más alto grado de complejidad. Esto puede causar una parada temprana del proceso de iteración ya que el máximo de pasos de iteración, que pueden ser definidos por el usuario, se alcanza antes que converge el algoritmo. Además, el paquete proporciona funciones para visualizar los resultados o, en general, para facilitar el uso de las redes neuronales. Por ejemplo, el cálculo función se puede aplicar para calcular predicciones de nuevas combinaciones de covarianza.\\
+
+\item \textbf{kohonen:}
+
+El paquete kohonen tiene como objetivo proporcionar funciones fáciles de usar para los mapas de auto-organización, con especial énfasis en la visualización.
+
+Las funciones básicas son:
+
+\begin{itemize}
+\item \textbf{som},la forma usual de mapas de auto-organización; \textbf{xyf}, para los mapas de auto-organización supervisados.
+
+\item \textbf{x-y} para mapas fusionado, que son útiles cuando la información adicional se encuentran en forma de, por ejemplo, una clase de variable que está disponible para todos los objetos.
+
+\item \textbf{bdk}, una formulación alternativa llamada mapas de Kohonen bidireccionales.
+
+\item \textbf{la generalización de los mapas xyf} a más de dos capas de información, en la función supersom.
+\end{itemize}
+
+Estas funciones pueden utilizarse para definir el mapeo de los objetos en el conjunto de entrenamiento a las unidades del mapa. Después de la fase de entrenamiento, se puede usar varias funciones de trazado para la visualización; el paquete puede mostrar dónde se asignan los objetos, tiene varias opciones para visualizar los vectores de libro de códigos de las unidades de mapa, y proporciona medios para evaluar el progreso del entrenamiento. Existen funciones de resumen para todo tipo SOM.
 \end{enumerate}
-
-\
 
 \subsection{\textbf{\emph{Aprendizaje Supervisado}}}
 
@@ -283,12 +298,12 @@ Se puede demostrar que este método de entrenamiento converge siempre en un tiem
     
 \item \textbf{\emph{Perceptron Multicapa}}
     		
-El perceptrón multicapa es una red neuronal artificial (RNA) formada por múltiples capas, esto le permite resolver problemas que no son linealmente separables, lo cual es la principal limitación del perceptrón simple. El perceptrón multicapa puede ser totalmente o localmente conectado. En el primer caso cada salida de una neurona de la capa "i" es entrada de todas las neuronas de la capa "i+1", mientras que en el segundo cada neurona de la capa "i" es entrada de una serie de neuronas (región) de la capa "i+1".
+El perceptrón multicapa es una red neuronal artificial (RNA) formada por múltiples capas, esto le permite resolver problemas que no son linealmente separables, lo cual es la principal limitación del perceptrón simple. El perceptrón multicapa puede ser totalmente o localmente conectado. 
     		
 \begin{itemize}
 \item \textbf{BackPropagation}
     			
-La propagación hacia atrás de errores o retropropagación es un algoritmo de aprendizaje supervisado que se usa para entrenar redes neuronales artificiales. El algoritmo emplea un ciclo propagación – adaptación de dos fases. Una vez que se ha aplicado un patrón a la entrada de la red como estímulo, este se propaga desde la primera capa a través de las capas superiores de la red, hasta generar una salida. La señal de salida se compara con la salida deseada y se calcula una señal de error para cada una de las salidas.
+La propagación hacia atrás de errores o retropropagación es un algoritmo de aprendizaje supervisado que se usa para entrenar redes neuronales artificiales. El algoritmo emplea un ciclo propagación – adaptación de dos fases. Una vez que se ha aplicado un patrón a la entrada de la red como estímulo, este se propaga desde la primera capa a través de las capas superiores de la red, hasta generar una salida. La señal de salida se compara con la salida deseada y se calcula una señal de error para cada una de las salidas.\\
     			
 La importancia de este proceso consiste en que, a medida que se entrena la red, las neuronas de las capas intermedias se organizan a sí mismas de tal modo que las distintas neuronas aprenden a reconocer distintas características del espacio total de entrada. Después del entrenamiento, cuando se les presente un patrón arbitrario de entrada que contenga ruido o que esté incompleto, las neuronas de la capa oculta de la red responderán con una salida activa si la nueva entrada contiene un patrón que se asemeje a aquella característica que las neuronas individuales hayan aprendido a reconocer durante su entrenamiento.
 \end{itemize}
