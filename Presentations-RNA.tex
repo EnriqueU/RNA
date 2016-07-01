@@ -37,7 +37,14 @@
 \subsection{Red Neuronal Artificial}
 
 \begin{frame}{Red Neuronal Artificial}
-\begin{block}{Principios}\pause
+\begin{block}{Definición}
+Puede definirse como un sistema de procesamiento de información compuesto por un gran número de elementos(neuronas), conectados entre sí y permiten la interacción
+con los objetos del mundo real tratando de emular al sistema nervioso biológico.
+\end{block}
+\end{frame}
+
+\begin{frame}{Red Neuronal Artificial}
+\begin{block}{Principios}
 \begin{itemize}
 \item {Aprendizaje Adaptativo\pause}
 \item {Autoorganizativo\pause}
@@ -49,7 +56,13 @@
 \end{frame}
 
 \begin{frame}{Red Neuronal Artificial}
-\begin{block}{Elementos}\pause
+\begin{columns}
+\column{.55\textwidth}
+\begin{figure}
+\includegraphics[scale=0.17]{elementos1.png}
+\end{figure}
+\column{.35\textwidth}
+\begin{block}{Elementos}
 \begin{itemize}
 \item {Elementos internos\pause}
 \item {Capa o nivel\pause}
@@ -57,76 +70,86 @@
 \item {Conexion entre neuronas\pause}
 \item {Dinámica}
 \end{itemize}
-\begin{figure}
-\includegraphics[scale=0.15]{elementos1.png}
-\centering
-\end{figure}
 \end{block}
+\end{columns}
 \end{frame}
 
 \subsection{Aprendizaje Automático}
 \begin{frame}{Aprendizaje Automático:}{Machine Learning}
-\begin{itemize}
-\item {Aprendizaje Supervisado\pause}
+Se encarga de desarrollar nuevas técnicas que le permitirá a la computadora aprender, en otras palabras, de crear programas capaces de generalizar comportamientos a partir de una informacion no estructurada, es por tanto un proceso de inducción del concocimiento.
+\begin{figure}
+\includegraphics[scale=0.17]{ml.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Aprendizaje Supervisado}
+El proceso de aprendizaje se realiza mediante un entrenamiento controlado.\pause
 \begin{itemize}
 \item {Aprendizaje por correcion de error\pause}
 \item {Aprendizaje por refuerzo\pause}
-\item {Aprendizaje estocástico\pause}
+\item {Aprendizaje estocástico}
 \end{itemize}
-\item {Aprendizaje NO Supervisado\pause}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Aprendizaje NO Supervisado}
+El proceso de aprendizaje se lleva a cabo sobre un conjunto de ejemplos formado tan sólo por entradas.\pause
 \begin{itemize}
 \item {Aprendizaje hebbiano\pause}
 \item {Aprendizaje competitivo}
 \end{itemize}
-\end{itemize}
+\end{block}
 \end{frame}
 
 \section{Neurona y RNA}
 \subsection{Neurona}
-\begin{frame}{Neurona Y RNA}
-\begin{block}{Neurona}
+\begin{frame}{Neurona Biológica}
 Células especializadas en la recepción de estímulos y conducción del impulso
 nervioso.\pause
+\begin{columns}
+\column{.28\textwidth}
 \begin{itemize}
 \item {Dendritas\pause}
 \item {Soma\pause}
 \item {Axón\pause}
 \item {Sinápsis\pause}
-\item {Impulso Nervioso}
+\item {Impulso Nervioso\pause}
 \end{itemize}
+\column{.55\textwidth}
 \begin{figure}
-\includegraphics[scale=0.2]{neurona.png}
+\includegraphics[scale=0.23]{neurona.png}
 \centering
 \end{figure}
-\end{block}
+\end{columns}
 \end{frame}
 
 \subsection{RNA}
-\begin{frame}{Neurona Y RNA}
-\begin{block}{RNA}
+\begin{frame}{RNA}
 Neurona el recibe una serie de entradas a través de interconexiones y emite una salida.\pause
+\begin{columns}
+\column{.28\textwidth}
 \begin{itemize}
 \item {Entradas\pause}
 \item {Pesos Sinápticos\pause}
 \item {Función de Propagación\pause}
-\item {Funcion de Activación}
+\item {Funcion de Activación\pause}
 \end{itemize}
+\column{.55\textwidth}
 \begin{figure}
-\includegraphics[scale=0.3]{rna.png}
-\centering
+\includegraphics[scale=0.23]{rna.png}
 \end{figure}
-\end{block}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\begin{center}
 \begin{block}{Neurona Biológica y Neurona Artificial}
 \begin{figure}
 \includegraphics[scale=0.4]{Rna.png}
 \centering
 \end{figure}
 \end{block}
-\end{center}
 \end{frame}
 
 \section{Sistemas de Gestión de Información}
@@ -157,194 +180,25 @@ Se utiliza para el modelado y la gestión de bases de datos, en este modelo todo
 \begin{frame}{Lenguaje R}
 \begin{block}{Características}
 \begin{itemize}
-\item Es un lenguaje de programación el cual permite que lo usuarios creen sus propias funciones.
-\item Posee manipulación de objetos en R y además su \textbf{orientación a objetos.}
-\item La facil extensión de R debido a su política de \textbf{lexical scoping}
-\item La integración y la sencilla manipulación de base de datos.
+\item Es un lenguaje de programación el cual permite que lo usuarios creen sus propias funciones.\pause
+\item Posee manipulación de objetos en R y además su \textbf{orientación a objetos.}\pause
+\item La facil extensión de R debido a su política de \textbf{lexical scoping}\pause
+\item La integración y la sencilla manipulación de base de datos.\pause
 \item Su capacidad gráfica, permite generar gráficos de alta calidad.\\
 \end{itemize}
 \end{block}
 \end{frame}
 
+\subsection{Paquetes de R}
 \begin{frame}{Paquetes de R}
 \begin{block}{NeuralNet Y Kohonen}
 \begin{itemize}
-\item El paquete NeuralNet contiene una función muy flexible para entrenar las redes neuronales de alimentación directa, es decir, a la aproximación de una relación funcional.
+\item El paquete NeuralNet contiene una función muy flexible para entrenar las redes neuronales de alimentación directa, es decir, a la aproximación de una relación funcional.\pause
 
 \item El paquete kohonen tiene como objetivo proporcionar funciones fáciles de usar para los mapas de auto-organización, con especial énfasis en la visualización.
 \end{itemize}
 \end{block}
 \end{frame}
-
-\subsection{Aprendizaje Supervisado}
-\begin{frame}
-\begin{block}{Leyendo Tabla OR}
-\begin{figure}
-\includegraphics[scale=0.4]{reador.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\begin{block}{Entrenando RNA para puerta lógica OR}
-\begin{figure}
-\includegraphics[scale=0.4]{neuralnetor.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-
-\begin{frame}
-\begin{block}{Leyendo Tabla AND}
-\begin{figure}
-\includegraphics[scale=0.4]{readand.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\begin{block}{Entrenando RNA para puerta lógica AND}
-\begin{figure}
-\includegraphics[scale=0.4]{neuralnetand.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\begin{block}{Leyendo Tabla XOR}
-\begin{figure}
-\includegraphics[scale=0.4]{readxor.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\begin{block}{Entrenando RNA para puerta lógica XOR}
-\begin{figure}
-\includegraphics[scale=0.4]{neuralnetxor.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.4]{entrenando.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.3]{tablairis.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.3]{irisespecie.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.3]{irisfalsetrue.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.25]{entrenadairis.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Verificando Red}
-\begin{figure}
-\includegraphics[scale=0.4]{comparando.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Verificando Red}
-\begin{figure}
-\includegraphics[scale=0.4]{comparacion.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\subsection{Aprendizaje NO Supervisado}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{Entrenando Red}
-\begin{figure}
-\includegraphics[scale=0.4]{mallairis.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{type=codes}
-\begin{figure}
-\includegraphics[scale=0.4]{codes.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{type=changes}
-\begin{figure}
-\includegraphics[scale=0.4]{changes.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{type=counts}
-\begin{figure}
-\includegraphics[scale=0.4]{counts.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\begin{frame}{Base de Datos Iris}
-\begin{block}{type=neighbours}
-\begin{figure}
-\includegraphics[scale=0.4]{neighbours.png}
-\centering
-\end{figure}
-\end{block}
-\end{frame}
-
-\appendix
-\section<presentation>*{\appendixname}
-\subsection<presentation>*{Bibliografía}
 
 \begin{frame}[allowframebreaks]
 \frametitle<presentation>{Bibliografía}
